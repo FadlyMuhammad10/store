@@ -36,3 +36,18 @@ export async function OrderProducts() {
 
   return CallAPI({ url, method: "GET", token: true });
 }
+export async function OrderDetailProducts(id) {
+  const url = `/api/participant/order/detail/${id}`;
+
+  return CallAPI({ url, method: "GET", token: true });
+}
+export async function CompletedShipping(id, data) {
+  const url = `/api/participant/order/complete/${id}`;
+
+  return CallAPI({ url, method: "PUT", data, token: true });
+}
+export async function GetCity() {
+  const url = `/api/rajaongkir/city`;
+
+  return CallAPI({ url, method: "GET", token: true });
+}

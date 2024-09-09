@@ -1,5 +1,6 @@
 "use client";
 import BreadcrumbD from "@/components/BreadcrumbD";
+import DialogCheckout from "@/components/DialogCheckout";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -20,8 +21,6 @@ export default function CartsPage() {
   const { carts, loading, error } = useCarts();
 
   const { removeCart } = useRemoveCart();
-
-  const { checkoutCart } = useMidtransCheckout();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -70,14 +69,7 @@ export default function CartsPage() {
                     >
                       Remove
                     </Button>
-                    <Button
-                      variant="default"
-                      className=" bg-[#29A867] hover:bg-[#29A867] font-normal"
-                      onClick={() => checkoutCart(item.id, item.product.price)}
-                      disabled={item?.product?.stock <= 0}
-                    >
-                      Checkout Now
-                    </Button>
+                    <DialogCheckout item={item} />
                   </TableCell>
                 </TableRow>
               </>

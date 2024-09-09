@@ -15,7 +15,7 @@ export default function Sidebar() {
   };
   return (
     <>
-      <div className="min-h-screen">
+      <div className="  ">
         <div className="container py-4 flex flex-col gap-20">
           <div className="flex flex-col gap-3">
             <Image

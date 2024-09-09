@@ -22,11 +22,13 @@ export default function MemberRootLayout({ children }) {
           <div className="border-t">
             <div className="bg-background">
               <div className="flex flex-row">
-                <div className="hidden lg:block w-[18%]">
+                <div className="hidden lg:block w-[18%] ">
                   <Sidebar />
                 </div>
                 <div className="col-span-3 overflow-auto w-[82%]">
-                  <div className="px-6 py-6 lg:px-8">{children}</div>
+                  <div className="px-6 py-6 lg:px-8 bg-[#F5F5FB]">
+                    {children}
+                  </div>
                 </div>
               </div>
             </div>

@@ -13,6 +13,7 @@ import useCarts from "@/hooks/useCarts";
 import useOrders from "@/hooks/useOrders";
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
+import { EyeIcon } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -49,7 +50,7 @@ export default function TransactionPage() {
           carts={carts}
         />
       </div>
-      <div className="relative my-5 min-h-screen overflow-auto">
+      <div className="relative my-5 h-[85vh] overflow-auto">
         <Table>
           <TableHeader>
             <TableRow>
@@ -62,7 +63,7 @@ export default function TransactionPage() {
             {orders?.map((item, i) => (
               <>
                 <TableRow key={item.id}>
-                  <TableCell className="font-medium inline-flex items-center">
+                  <TableCell className="font-medium inline-flex items-center justify-center">
                     <Image
                       src={item?.cart?.product?.images[0]?.image_url}
                       alt={item?.cart?.product?.images[0]?.image_url}
@@ -77,7 +78,24 @@ export default function TransactionPage() {
                   <TableCell className="font-medium text-[#FF7158]">
                     {item?.date}
                   </TableCell>
-                  <TableCell className="font-medium">{item?.status}</TableCell>
+                  {item?.status === "pending" ? (
+                    <TableCell className="font-medium  text-[#F32355]">
+                      {item?.status}
+                    </TableCell>
+                  ) : (
+                    <TableCell className="font-medium capitalize text-[#00C48C]">
+                      {item?.status}
+                    </TableCell>
+                  )}
+
+                  <TableCell className="font-medium ">
+                    <EyeIcon
+                      className="w-5 h-5 hover:cursor-pointer"
+                      onClick={() => {
+                        router.push(`/transaction/detail/${item?.id}`);
+                      }}
+                    />
+                  </TableCell>
                 </TableRow>
               </>
             ))}

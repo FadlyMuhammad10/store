@@ -95,21 +95,20 @@ export default function Navbar() {
                     </DropdownMenu>
                   </div>
 
-                  <div
-                    className="relative cursor-pointer"
-                    onClick={() => router.push("/carts")}
-                  >
-                    <Image
-                      src="/images/ic-shop.svg"
-                      alt="avatar"
-                      width="24"
-                      height="24"
-                      className="max-h-[24px] max-w-[24px] rounded-full"
-                    />
-                    <div className="absolute translate-x-[13px] translate-y-[-20px] w-[16px] h-[16px] px-2 py-2 bg-[#29A867] rounded-full text-sm text-white flex items-center justify-center ">
-                      {carts?.length}
+                  <Link href="/carts">
+                    <div className="relative cursor-pointer">
+                      <Image
+                        src="/images/ic-shop.svg"
+                        alt="avatar"
+                        width="24"
+                        height="24"
+                        className="max-h-[24px] max-w-[24px] rounded-full"
+                      />
+                      <div className="absolute translate-x-[13px] translate-y-[-20px] w-[16px] h-[16px] px-2 py-2 bg-[#29A867] rounded-full text-sm text-white flex items-center justify-center ">
+                        {carts?.length}
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </>
               ) : (
                 <>

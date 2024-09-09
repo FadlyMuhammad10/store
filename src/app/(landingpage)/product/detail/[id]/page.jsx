@@ -31,6 +31,8 @@ export default function ProductDetailPage({ params }) {
   const handleAddToCart = async () => {
     if (!isOutOfStock) {
       await useAddCart(product);
+      // reload page
+      router.refresh();
     } else {
       toast.error("Product is out of stock.");
     }

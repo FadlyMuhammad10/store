@@ -57,4 +57,10 @@ export const PRODUCTS_OPTIONS = [
 ];
 
 export const CARTS_COLUMNS = ["IMAGE", "NAME PRODUCT", "PRICE", "ACTION"];
-export const ORDERS_COLUMNS = ["IMAGE", "NAME PRODUCT", "DATE", , "STATUS"];
+export const ORDERS_COLUMNS = [
+  "IMAGE",
+  "NAME PRODUCT",
+  "DATE",
+  "STATUS PAYMENT",
+  "ACTION",
+];
